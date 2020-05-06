@@ -5,6 +5,7 @@
     @include('templates.contact.page-top')
     @include('templates.contact.google-map')
     @include('templates.contact.contact')
+    @include('templates.contact.footer')
 @endsection
 
 <!-- Page Preloder -->

@@ -8,6 +8,7 @@
     @include('templates.services.services-card')
     @include('templates.services.newsletter')
     @include('templates.services.contact')
+    @include('templates.services.footer')
 @endsection
 
 <!-- Page Preloder -->

@@ -5,6 +5,7 @@
     @include('templates.blog-post.page-top')
     @include('templates.blog-post.blog-post')
     @include('templates.blog-post.newsletter')
+    @include('templates.blog-post.footer')
 @endsection
 
 <!-- Page Preloder -->

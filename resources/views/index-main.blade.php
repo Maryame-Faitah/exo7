@@ -9,6 +9,7 @@
     @include('templates.main.team')
     @include('templates.main.promotion')
     @include('templates.main.contact')
+    @include('templates.main.footer')
 @endsection
 
 <!-- Page Preloder -->

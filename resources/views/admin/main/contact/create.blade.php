@@ -11,16 +11,16 @@
                         <div class="form-group">
                             <label for="titre">Titre</label>
                             <input type="text" name="titre" id="titre" class="form-control mb-2">
-                            {{-- @error('titre')
+                            @error('titre')
                                 <span class="text-danger">{{$message}}</span>
-                            @enderror --}}
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="description">Description</label>
                             <input type="text" name="description" id="description" class="form-control mb-2">
-                            {{-- @error('description')
+                            @error('description')
                                 <span class="text-danger">{{$message}}</span>
-                            @enderror --}}
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="sous_titre">Sous-titre</label>

@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Contact;
+use App\Message;
+use App\Footer;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,39 +16,47 @@ use App\Contact;
 |
 */
 
-// INDEX
+/////////////////////////////////////////////// INDEX //////////////////////////////////////////////////////////
 Route::get('/', function () {
     $contacts = Contact::all();
-
-    return view('index',compact('contacts'));
+    $messages = Message::all();
+    $footers = Footer::all();
+    return view('index',compact('contacts','footers','messages'));
 });
 
-// ADMIN
-Route::get('/admin',function(){
-    return view('admin.index');
-});
-// MAIN
-Route::resource('/admin/main/contact','ContactController');
-// AUTRES PAGES
-Route::get('/main',function(){
-    $contacts = Contact::all();
-
-    return view('index-main',compact('contacts'));
-});
+//////////////////////////////////////////// AUTRES PAGES ////////////////////////////////////////////////////////
 Route::get('/services',function(){
-    return view('index-services');
+    $contacts = Contact::all();
+    $messages = Message::all();
+    $footers = Footer::all();
+    return view('index-services',compact('contacts','footers','messages'));
 });
 Route::get('/blog',function(){
-    return view('index-blog');
+    $footers = Footer::all();
+    return view('index-blog',compact('footers'));
 });
 Route::get('/blog-post',function(){
-    return view('index-blog-post');
+    $footers = Footer::all();
+    return view('index-blog-post',compact('footers'));
 });
 Route::get('/contact',function(){
-    return view('index-contact');
+    $contacts = Contact::all();
+    $messages = Message::all();
+    $footers = Footer::all();
+    return view('index-contact',compact('contacts','footers','messages'));
 });
+//////////////////////////////////////////// ADMINLTE PAGE ////////////////////////////////////////////////////////
+Route::get('/admin',function(){
+    $messages = Message::all();
+    return view('admin.index',compact('messages'));
+});
+// main page -> contact
+Route::resource('/admin/main/contact','ContactController');
+Route::resource('/admin/message','MessageController');
+// footer
+Route::resource('/admin/footer','FooterController');
 
-
+//////////////////////////////////////////// AUTHENTIFICATION //////////////////////////////////////////////////////
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -167,7 +167,7 @@ return [
 
     'use_route_url' => false,
 
-    'dashboard_url' => 'home',
+    'dashboard_url' => '/admin',
 
     'logout_url' => 'logout',
 
@@ -284,15 +284,11 @@ return [
             'url' => '',
             'icon' => 'fas fa-briefcase',
         ],
+        ['header' => 'FOOTER'],
         [
-            'text' => 'Section Team',
-            'url' => '',
-            'icon' => 'fas fa-users',
-        ],
-        [
-            'text' => 'Section Contact',
-            'url' => '',
-            'icon' => 'fas fa-address-card',
+            'text' => 'Footer',
+            'url' => '/admin/footer',
+            'icon' => 'far fa-copyright',
         ],
     ],
 
