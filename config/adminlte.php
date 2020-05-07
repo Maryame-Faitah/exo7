@@ -209,12 +209,13 @@ return [
 
     'menu' => [
 
-        ['header' => 'HOME'],
+        ['header' => 'Menu'],
         [
-            'text' => 'Menu',
-            'url' => '',
+            'text' => 'Barre de navigation',
+            'url' => '/admin/menu',
             'icon' => 'fas fa-list',
         ],
+        ['header' => 'HOME'],
         [
             'text' => 'Bannière',
             'url' => '',
@@ -252,13 +253,8 @@ return [
         ],
         [
             'text' => 'Ready?',
-            'url' => '',
+            'url' => '/admin/main/ready',
             'icon' => 'fas fa-question',
-        ],
-        [
-            'text' => 'Contact',
-            'url' => '/admin/main/contact',
-            'icon' => 'fas fa-address-card',
         ],
 
         ['header' => 'SERVICES'],
@@ -269,21 +265,18 @@ return [
         ],
         ['header' => 'BLOG'],
         [
-            'text' => 'Section Services',
-            'url' => '',
-            'icon' => 'fas fa-hands-helping',
-        ],
-        ['header' => 'CONTACT'],
-        [
-            'text' => 'Subscribe',
+            'text' => 'Newsletter',
             'url' => '',
             'icon' => 'far fa-check-circle',
         ],
+
+        ['header' => 'CONTACT'],
         [
-            'text' => 'Section Portfolio',
-            'url' => '',
-            'icon' => 'fas fa-briefcase',
+            'text' => 'Contact',
+            'url' => '/admin/main/contact',
+            'icon' => 'fas fa-address-card',
         ],
+
         ['header' => 'FOOTER'],
         [
             'text' => 'Footer',

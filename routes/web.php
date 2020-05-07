@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Menu;
+use App\Ready;
 use App\Contact;
 use App\Message;
 use App\Footer;
@@ -18,41 +20,51 @@ use App\Footer;
 
 /////////////////////////////////////////////// INDEX //////////////////////////////////////////////////////////
 Route::get('/', function () {
+    $menus = Menu::all();
+    $readys = Ready::all();
     $contacts = Contact::all();
     $messages = Message::all();
     $footers = Footer::all();
-    return view('index',compact('contacts','footers','messages'));
+    return view('index',compact('menus','readys','contacts','messages','footers'));
 });
 
 //////////////////////////////////////////// AUTRES PAGES ////////////////////////////////////////////////////////
 Route::get('/services',function(){
+    $menus = Menu::all();
     $contacts = Contact::all();
     $messages = Message::all();
     $footers = Footer::all();
-    return view('index-services',compact('contacts','footers','messages'));
+    return view('index-services',compact('menus','contacts','messages','footers'));
 });
 Route::get('/blog',function(){
+    $menus = Menu::all();
     $footers = Footer::all();
-    return view('index-blog',compact('footers'));
+    return view('index-blog',compact('menus','footers'));
 });
 Route::get('/blog-post',function(){
+    $menus = Menu::all();
     $footers = Footer::all();
-    return view('index-blog-post',compact('footers'));
+    return view('index-blog-post',compact('menus','footers'));
 });
 Route::get('/contact',function(){
+    $menus = Menu::all();
     $contacts = Contact::all();
     $messages = Message::all();
     $footers = Footer::all();
-    return view('index-contact',compact('contacts','footers','messages'));
+    return view('index-contact',compact('menus','contacts','messages','footers'));
 });
 //////////////////////////////////////////// ADMINLTE PAGE ////////////////////////////////////////////////////////
 Route::get('/admin',function(){
     $messages = Message::all();
     return view('admin.index',compact('messages'));
 });
+// menu
+Route::resource('/admin/menu','MenuController');
 // main page -> contact
 Route::resource('/admin/main/contact','ContactController');
 Route::resource('/admin/message','MessageController');
+// main page -> ready?
+Route::resource('/admin/main/ready','ReadyController');
 // footer
 Route::resource('/admin/footer','FooterController');
 

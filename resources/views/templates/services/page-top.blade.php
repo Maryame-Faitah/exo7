@@ -2,10 +2,22 @@
     <div class="overlay"></div>
     <div class="container text-right">
         <div class="page-info">
-            <h2>Services</h2>
+            @if (count($menus) !== 0)
+                @foreach ($menus as $menu)
+                    <h2>{{$menu->section2}}</h2>
+                @endforeach
+            @else
+                <h2>Services</h2>
+            @endif
             <div class="page-links">
                 <a href="#">Home</a>
-                <span>Services</span>
+                @if (count($menus) !== 0)
+                    @foreach ($menus as $menu)
+                        <span>{{$menu->section2}}</span>
+                    @endforeach
+                @else
+                    <span>Services</span>
+                @endif
             </div>
         </div>
     </div>

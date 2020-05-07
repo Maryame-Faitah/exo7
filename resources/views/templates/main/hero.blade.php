@@ -1,7 +1,13 @@
 <div class="hero-section">
 	<div class="hero-content">
 		<div class="hero-center">
-			<img src="img/big-logo.png" alt="">
+			@if (count($menus) !== 0)
+				@foreach ($menus as $menu)
+					<img src="{{asset('storage/'.$menu->img)}}" alt="">
+				@endforeach
+			@else
+				<img src="img/big-logo.png" alt="">
+			@endif
 			<p>Get your freebie template now!</p>
 		</div>
 	</div>
