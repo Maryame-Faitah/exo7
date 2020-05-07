@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Hero;
 use App\Slogan;
 use App\Menu;
+use App\Video;
+use App\About;
+
 use App\Ready;
 use App\Contact;
 use App\Message;
@@ -22,14 +25,16 @@ use App\Footer;
 
 /////////////////////////////////////////////// INDEX //////////////////////////////////////////////////////////
 Route::get('/', function () {
+    $menus = Menu::all();
     $heros = Hero::all();
     $slogans = Slogan::all();
-    $menus = Menu::all();
+    $videos = Video::all();
+    $abouts = About::all();
     $readys = Ready::all();
     $contacts = Contact::all();
     $messages = Message::all();
     $footers = Footer::all();
-    return view('index',compact('heros','slogans','menus','readys','contacts','messages','footers'));
+    return view('index',compact('menus','heros','slogans','videos','abouts','readys','contacts','messages','footers'));
 });
 
 //////////////////////////////////////////// AUTRES PAGES ////////////////////////////////////////////////////////
@@ -67,6 +72,10 @@ Route::resource('/admin/menu','MenuController');
 // main page -> hero
 Route::resource('/admin/main/hero','HeroController');
 Route::resource('/admin/main/hero/slogan','SloganController');
+// main page -> video
+Route::resource('/admin/main/video','VideoController');
+// main page -> about
+Route::resource('/admin/main/about','AboutController');
 // main page -> contact
 Route::resource('/admin/main/contact','ContactController');
 Route::resource('/admin/message','MessageController');

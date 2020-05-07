@@ -6,7 +6,7 @@
         <div class="col mt-5">
             <div class="card card-warning">
                 <div class="card-body">
-                    <form role="form" action="{{route('ready.store')}}" method="POST" enctype="multipart/form-data">
+                    <form role="form" action="{{route('about.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="titre">Titre</label>
@@ -16,9 +16,16 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="description">Description</label>
-                            <input type="text" name="description" id="description" class="form-control mb-2">
-                            @error('description')
+                            <label for="texte_gauche">Texte de gauche</label>
+                            <textarea name="texte_gauche" id="texte_gauche" cols="10" rows="10"  class="form-control mb-2"></textarea>
+                            @error('texte_gauche')
+                                <span class="text-danger">{{$message}}</span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="texte_droite">Texte de droite</label>
+                            <textarea name="texte_droite" id="texte_droite" cols="10" rows="10"  class="form-control mb-2"></textarea>
+                            @error('texte_droite')
                                 <span class="text-danger">{{$message}}</span>
                             @enderror
                         </div>

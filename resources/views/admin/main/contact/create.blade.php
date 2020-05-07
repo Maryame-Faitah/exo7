@@ -51,7 +51,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="email">Bouton</label>
+                            <label for="nom_btn">Bouton</label>
                             <input type="text" name="nom_btn" id="nom_btn" class="form-control mb-2">
                             @error('nom_btn')
                                 <span class="text-danger">{{$message}}</span>

@@ -228,12 +228,12 @@ return [
         ],
         [
             'text' => 'Présentation',
-            'url' => '',
+            'url' => '/admin/main/about',
             'icon' => 'fas fa-chalkboard-teacher',
         ],
         [
             'text' => 'Vidéo',
-            'url' => '',
+            'url' => '/admin/main/video',
             'icon' => 'fas fa-video',
         ],
         [
