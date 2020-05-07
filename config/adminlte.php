@@ -248,7 +248,7 @@ return [
         ],
         [
             'text' => 'Team',
-            'url' => '',
+            'url' => '/admin/main/team',
             'icon' => 'fas fa-users',
         ],
         [

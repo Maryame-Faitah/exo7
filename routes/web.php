@@ -7,6 +7,8 @@ use App\Menu;
 use App\Video;
 use App\About;
 
+use App\Team;
+use App\Membre;
 use App\Ready;
 use App\Contact;
 use App\Message;
@@ -30,11 +32,15 @@ Route::get('/', function () {
     $slogans = Slogan::all();
     $videos = Video::all();
     $abouts = About::all();
+
+    $teams = Team::all();
+    $membres = Membre::all();
     $readys = Ready::all();
     $contacts = Contact::all();
     $messages = Message::all();
     $footers = Footer::all();
-    return view('index',compact('menus','heros','slogans','videos','abouts','readys','contacts','messages','footers'));
+    return view('index',compact('menus','heros','slogans','videos','abouts',
+    'teams','membres','readys','contacts','messages','footers'));
 });
 
 //////////////////////////////////////////// AUTRES PAGES ////////////////////////////////////////////////////////
@@ -79,6 +85,9 @@ Route::resource('/admin/main/about','AboutController');
 // main page -> contact
 Route::resource('/admin/main/contact','ContactController');
 Route::resource('/admin/message','MessageController');
+// main page -> team
+Route::resource('/admin/main/team','TeamController');
+Route::resource('/admin/main/team/membres','MembreController');
 // main page -> ready?
 Route::resource('/admin/main/ready','ReadyController');
 // footer
