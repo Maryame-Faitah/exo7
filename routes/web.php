@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Hero;
+use App\Slogan;
 use App\Menu;
 use App\Ready;
 use App\Contact;
@@ -20,12 +22,14 @@ use App\Footer;
 
 /////////////////////////////////////////////// INDEX //////////////////////////////////////////////////////////
 Route::get('/', function () {
+    $heros = Hero::all();
+    $slogans = Slogan::all();
     $menus = Menu::all();
     $readys = Ready::all();
     $contacts = Contact::all();
     $messages = Message::all();
     $footers = Footer::all();
-    return view('index',compact('menus','readys','contacts','messages','footers'));
+    return view('index',compact('heros','slogans','menus','readys','contacts','messages','footers'));
 });
 
 //////////////////////////////////////////// AUTRES PAGES ////////////////////////////////////////////////////////
@@ -60,6 +64,9 @@ Route::get('/admin',function(){
 });
 // menu
 Route::resource('/admin/menu','MenuController');
+// main page -> hero
+Route::resource('/admin/main/hero','HeroController');
+Route::resource('/admin/main/hero/slogan','SloganController');
 // main page -> contact
 Route::resource('/admin/main/contact','ContactController');
 Route::resource('/admin/message','MessageController');

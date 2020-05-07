@@ -218,7 +218,7 @@ return [
         ['header' => 'HOME'],
         [
             'text' => 'Bannière',
-            'url' => '',
+            'url' => '/admin/main/hero',
             'icon' => 'far fa-images',
         ],
         [
