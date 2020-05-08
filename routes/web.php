@@ -8,6 +8,8 @@ use App\About;
 use App\Video;
 use App\Testimonial;
 use App\Temoin;
+use App\Service;
+use App\Serviceslist;
 
 use App\Team;
 use App\Membre;
@@ -36,6 +38,8 @@ Route::get('/', function () {
     $abouts = About::all();
     $testimonials = Testimonial::all();
     $temoins = Temoin::all();
+    $services = Service::all();
+    $serviceslists = Serviceslist::all();
 
     $teams = Team::all();
     $membres = Membre::all();
@@ -44,16 +48,19 @@ Route::get('/', function () {
     $messages = Message::all();
     $footers = Footer::all();
     return view('index',compact('menus','heros','slogans','videos','abouts','testimonials','temoins',
-    'teams','membres','readys','contacts','messages','footers'));
+    'services','serviceslists','teams','membres','readys','contacts','messages','footers'));
 });
 
 //////////////////////////////////////////// AUTRES PAGES ////////////////////////////////////////////////////////
 Route::get('/services',function(){
     $menus = Menu::all();
+    $services = Service::all();
+    $serviceslists = Serviceslist::all();
+
     $contacts = Contact::all();
     $messages = Message::all();
     $footers = Footer::all();
-    return view('index-services',compact('menus','contacts','messages','footers'));
+    return view('index-services',compact('menus','services','serviceslists','contacts','messages','footers'));
 });
 Route::get('/blog',function(){
     $menus = Menu::all();
@@ -98,6 +105,10 @@ Route::resource('/admin/main/ready','ReadyController');
 // main page -> contact
 Route::resource('/admin/main/contact','ContactController');
 Route::resource('/admin/message','MessageController');
+
+// services page -> services
+Route::resource('/admin/services/servicescard','ServiceController');
+Route::resource('/admin/services/servicescard/serviceslist','ServiceslistController');
 // footer
 Route::resource('/admin/footer','FooterController');
 

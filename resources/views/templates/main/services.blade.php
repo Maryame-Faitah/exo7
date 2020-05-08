@@ -1,9 +1,33 @@
 <div class="services-section spad">
     <div class="container">
-        <div class="section-title dark">
-            <h2>Get in <span>the Lab</span> and see the services</h2>
-        </div>
+        @if (count($services) !== 0)
+            @foreach ($services as $service)
+                <div class="section-title dark">
+                    <h2>{{$service->titre}}</h2>
+                </div>        
+            @endforeach
+        @else
+            <div class="section-title dark">
+                <h2>Get in <span>the Lab</span> and see the services</h2>
+            </div>
+        @endif
         <div class="row">
+            @if (count($serviceslists) !== 0)
+            @foreach ($serviceslists as $serviceslist)
+                <!-- single service -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="service">
+                        <div class="icon">
+                            <i class="{{$serviceslist->icon}}"></i>
+                        </div>
+                        <div class="service-text">
+                            <h2>{{$serviceslist->titre}}</h2>
+                            <p>{{$serviceslist->description}}</p>
+                        </div>
+                    </div>
+                </div>  
+            @endforeach
+        @else
             <!-- single service -->
             <div class="col-md-4 col-sm-6">
                 <div class="service">
@@ -112,9 +136,10 @@
                     </div>
                 </div>
             </div>
+        @endif
         </div>
         <div class="text-center">
-            <a href="" class="site-btn">Browse</a>
+            <a href="/services#features" class="site-btn">Browse</a>
         </div>
     </div>
 </div>

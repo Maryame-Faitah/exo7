@@ -243,7 +243,7 @@ return [
         ],
         [
             'text' => 'Services',
-            'url' => '',
+            'url' => '/admin/services/servicescard',
             'icon' => 'fas fa-hands-helping',
         ],
         [

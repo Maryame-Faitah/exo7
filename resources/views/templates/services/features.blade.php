@@ -1,4 +1,4 @@
-<div class="team-section spad">
+<div class="team-section spad" id="features">
     <div class="overlay"></div>
     <div class="container">
         <div class="section-title">
@@ -77,7 +77,7 @@
             </div>
         </div>
         <div class="text-center mt100">
-            <a href="" class="site-btn">Browse</a>
+            <a href="/blog" class="site-btn">Browse</a>
         </div>
     </div>
 </div>
