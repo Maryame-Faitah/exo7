@@ -1,9 +1,17 @@
 <div class="team-section spad" id="features">
     <div class="overlay"></div>
     <div class="container">
-        <div class="section-title">
-            <h2>Get in <span>the Lab</span> and  discover the world</h2>
-        </div>
+        @if (count($features) !== 0)
+            @foreach ($features as $feature)
+                <div class="section-title">
+                    <h2>{{$feature->titre}}</h2>
+                </div>        
+            @endforeach
+        @else
+            <div class="section-title">
+                <h2>Get in <span>the Lab</span> and  discover the world</h2>
+            </div>
+        @endif
         <div class="row">
             <!-- feature item -->
             <div class="col-md-4 col-sm-4 features">
@@ -76,8 +84,16 @@
                 </div>
             </div>
         </div>
-        <div class="text-center mt100">
-            <a href="/blog" class="site-btn">Browse</a>
-        </div>
+        @if (count($features) !== 0)
+            @foreach ($features as $feature)
+                <div class="text-center mt100">
+                    <a href="/blog" class="site-btn">{{$feature->nom_btn}}</a>
+                </div>        
+            @endforeach
+        @else
+            <div class="text-center mt100">
+                <a href="/blog" class="site-btn">Browse</a>
+            </div>
+        @endif
     </div>
 </div>

@@ -222,11 +222,6 @@ return [
             'icon' => 'far fa-images',
         ],
         [
-            'text' => 'Services rapides',
-            'url' => '',
-            'icon' => 'fas fa-hands-helping',
-        ],
-        [
             'text' => 'Présentation',
             'url' => '/admin/main/about',
             'icon' => 'fas fa-chalkboard-teacher',
@@ -242,11 +237,6 @@ return [
             'icon' => 'far fa-comments',
         ],
         [
-            'text' => 'Services',
-            'url' => '/admin/services/servicescard',
-            'icon' => 'fas fa-hands-helping',
-        ],
-        [
             'text' => 'Team',
             'url' => '/admin/main/team',
             'icon' => 'fas fa-users',
@@ -259,9 +249,14 @@ return [
 
         ['header' => 'SERVICES'],
         [
-            'text' => 'Section About',
-            'url' => '',
-            'icon' => 'far fa-question-circle',
+            'text' => 'Services',
+            'url' => '/admin/services/servicescard',
+            'icon' => 'fas fa-hands-helping',
+        ],
+        [
+            'text' => 'Services primés',
+            'url' => '/admin/services/features/',
+            'icon' => 'fas fa-hands-helping',
         ],
         ['header' => 'BLOG'],
         [

@@ -40,9 +40,15 @@
                             <input type="text" name="email" placeholder="Your email">
                         </div>
                         <div class="col-sm-12">
-                            <input type="text" name="subject" placeholder="Subject">
+                            <input type="text" name="sujet" placeholder="Subject">
                             <textarea name="message" placeholder="Message"></textarea>
-                            <button class="site-btn">send</button>
+                            @if (count($contacts) !== 0)
+                                @foreach ($contacts as $contact)
+                                    <button class="site-btn">{{$contact->nom_btn}}</button>   
+                                @endforeach
+                            @else
+                                <button class="site-btn">send</button>   
+                            @endif
                         </div>
                     </div>
                 </form>

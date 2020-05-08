@@ -19,7 +19,7 @@
                         <a href="/contact" class="site-btn btn-2">{{$ready->nom_btn}}</a>
                     @endforeach
                 @else
-                    <a href="" class="site-btn btn-2">Browse</a>
+                    <a href="/contact" class="site-btn btn-2">Browse</a>
                 @endif
                 </div>
             </div>

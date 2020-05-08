@@ -57,7 +57,13 @@
 						</div>
 					</div>
 					<div class="text-center mt60">
-						<a href="/contact" class="site-btn">{{$about->nom_btn}}</a>
+						@if (count($abouts) !== 0)
+							@foreach ($abouts as $about)
+								<a href="/contact" class="site-btn">{{$about->nom_btn}}</a>
+							@endforeach
+						@else
+							<a href="/contact" class="site-btn">Browse</a>
+						@endif
 					</div>
 				@endforeach
 			@else
