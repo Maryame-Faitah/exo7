@@ -4,8 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Hero;
 use App\Slogan;
 use App\Menu;
-use App\Video;
 use App\About;
+use App\Video;
+use App\Testimonial;
+use App\Temoin;
 
 use App\Team;
 use App\Membre;
@@ -32,6 +34,8 @@ Route::get('/', function () {
     $slogans = Slogan::all();
     $videos = Video::all();
     $abouts = About::all();
+    $testimonials = Testimonial::all();
+    $temoins = Temoin::all();
 
     $teams = Team::all();
     $membres = Membre::all();
@@ -39,7 +43,7 @@ Route::get('/', function () {
     $contacts = Contact::all();
     $messages = Message::all();
     $footers = Footer::all();
-    return view('index',compact('menus','heros','slogans','videos','abouts',
+    return view('index',compact('menus','heros','slogans','videos','abouts','testimonials','temoins',
     'teams','membres','readys','contacts','messages','footers'));
 });
 
@@ -82,14 +86,18 @@ Route::resource('/admin/main/hero/slogan','SloganController');
 Route::resource('/admin/main/video','VideoController');
 // main page -> about
 Route::resource('/admin/main/about','AboutController');
-// main page -> contact
-Route::resource('/admin/main/contact','ContactController');
-Route::resource('/admin/message','MessageController');
+// main page -> testimonials
+Route::resource('/admin/main/testimonials','TestimonialController');
+Route::resource('/admin/main/testimonials/temoins','TemoinController');
+
 // main page -> team
 Route::resource('/admin/main/team','TeamController');
 Route::resource('/admin/main/team/membres','MembreController');
 // main page -> ready?
 Route::resource('/admin/main/ready','ReadyController');
+// main page -> contact
+Route::resource('/admin/main/contact','ContactController');
+Route::resource('/admin/message','MessageController');
 // footer
 Route::resource('/admin/footer','FooterController');
 

@@ -238,7 +238,7 @@ return [
         ],
         [
             'text' => 'Témoignages',
-            'url' => '',
+            'url' => '/admin/main/testimonials',
             'icon' => 'far fa-comments',
         ],
         [

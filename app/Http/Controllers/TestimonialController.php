@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Requests\TeamRequest;
-use App\Team;
-use App\Membre;
+use App\Http\Requests\TestimonialRequest;
+use App\Testimonial;
+use App\Temoin;
 
-class TeamController extends Controller
+class TestimonialController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +17,9 @@ class TeamController extends Controller
      */
     public function index()
     {
-        $teams = Team::all();
-        $membres = Membre::all();
-        return view('admin.main.team.index',compact('membres','teams'));
+        $testimonials = Testimonial::all();
+        $temoins = Temoin::all();
+        return view('admin.main.testimonials.index',compact('testimonials','temoins'));
     }
 
     /**
@@ -29,7 +29,7 @@ class TeamController extends Controller
      */
     public function create()
     {
-        return view('admin.main.team.create');
+        return view('admin.main.testimonials.create');
     }
 
     /**
@@ -38,15 +38,15 @@ class TeamController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(TeamRequest $request)
+    public function store(TestimonialRequest $request)
     {
-        $team = new Team();
+        $testimonial = new Testimonial();
 
-        $team->titre = request('titre');
+        $testimonial->titre = request('titre');
 
-        $team->save();
+        $testimonial->save();
 
-        return redirect()->route('team.index');
+        return redirect()->route('testimonials.index');
     }
 
     /**
@@ -68,9 +68,9 @@ class TeamController extends Controller
      */
     public function edit($id)
     {
-        $team = Team::find($id);
+        $testimonial = Testimonial::find($id);
 
-        return view('admin.main.team.edit',compact('team'));
+        return view('admin.main.testimonials.edit',compact('testimonial'));
     }
 
     /**
@@ -80,15 +80,15 @@ class TeamController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(TeamRequest $request, $id)
+    public function update(TestimonialRequest $request, $id)
     {
-        $team = Team::find($id);
+        $testimonial = Testimonial::find($id);
 
-        $team->titre = request('titre');
+        $testimonial->titre = request('titre');
 
-        $team->save();
+        $testimonial->save();
 
-        return redirect()->route('team.index');
+        return redirect()->route('testimonials.index');
     }
 
     /**
@@ -99,11 +99,11 @@ class TeamController extends Controller
      */
     public function destroy($id)
     {
-        $team = Team::find($id);
+        $testimonial = Testimonial::find($id);
 
-        Storage::delete($team);
+        Storage::delete($testimonial);
 
-        $team->delete();
+        $testimonial->delete();
 
         return redirect()->back();
     }
