@@ -13,13 +13,13 @@
         <div class="row">
             @if (count($membres) !== 0)
                 @foreach ($membres as $membre)
-                <div class="col-sm-4">
-                    <div class="member">
-                        <img src="{{asset('storage/'.$membre->img)}}" alt="">
-                        <h2>{{$membre->prenom}} {{$membre->nom}}</h2>
-                        <h3>{{$membre->fonction}}</h3>
+                    <div class="col-sm-4">
+                        <div class="member">
+                            <img src="{{asset('storage/'.$membre->img)}}" alt="">
+                            <h2>{{$membre->prenom}} {{$membre->nom}}</h2>
+                            <h3>{{$membre->fonction}}</h3>
+                        </div>
                     </div>
-                </div>
                 @endforeach
             @else
                 <!-- single member -->

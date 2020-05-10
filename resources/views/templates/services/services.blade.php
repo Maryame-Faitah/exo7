@@ -139,6 +139,9 @@
         @endif
         </div>
         <div class="text-center">
+            {{$serviceslists->links()}}
+        </div>
+        <div class="text-center">
             <a href="#features" class="site-btn">Browse</a>
         </div>
     </div>

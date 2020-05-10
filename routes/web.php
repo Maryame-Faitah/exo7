@@ -31,41 +31,44 @@ use App\Footer;
 */
 
 /////////////////////////////////////////////// INDEX //////////////////////////////////////////////////////////
-Route::get('/', function () {
-    $menus = Menu::all();
-    $heros = Hero::all();
-    $slogans = Slogan::all();
-    $videos = Video::all();
-    $abouts = About::all();
-    $testimonials = Testimonial::all();
-    $temoins = Temoin::all();
-    $services = Service::all();
-    $serviceslists = Serviceslist::all();
-    $features = Feature::all();
+// Route::get('/', function () {
+//     $menus = Menu::all();
+//     $heros = Hero::all();
+//     $slogans = Slogan::all();
+//     $videos = Video::all();
+//     $abouts = About::all();
+//     $testimonials = Testimonial::all();
+//     $temoins = Temoin::all();
+//     $services = Service::all();
+//     $serviceslists = Serviceslist::all();
+//     $features = Feature::all();
     
-    $teams = Team::all();
-    $membres = Membre::all();
-    $readys = Ready::all();
-    $contacts = Contact::all();
-    $messages = Message::all();
-    $footers = Footer::all();
-    return view('index',compact('menus','heros','slogans','videos','abouts','testimonials','temoins',
-    'services','serviceslists','features','teams','membres','readys','contacts','messages','footers'));
-});
+//     $teams = Team::all();
+//     $membres = Membre::all();
+//     $readys = Ready::all();
+//     $contacts = Contact::all();
+//     $messages = Message::all();
+//     $footers = Footer::all();
+//     return view('index',compact('menus','heros','slogans','videos','abouts','testimonials','temoins',
+//     'services','serviceslists','features','teams','membres','readys','contacts','messages','footers'));
+// });
+Route::resource('/','MainController');
 
 //////////////////////////////////////////// AUTRES PAGES ////////////////////////////////////////////////////////
-Route::get('/services',function(){
-    $menus = Menu::all();
-    $services = Service::all();
-    $serviceslists = Serviceslist::all();
-    $features = Feature::all();
+// Route::get('/services',function(){
+//     $menus = Menu::all();
+//     $services = Service::all();
+//     $serviceslists = Serviceslist::all();
+//     $features = Feature::all();
 
-    $contacts = Contact::all();
-    $messages = Message::all();
-    $footers = Footer::all();
-    return view('index-services',compact('menus','services','serviceslists','features',
-    'contacts','messages','footers'));
-});
+//     $contacts = Contact::all();
+//     $messages = Message::all();
+//     $footers = Footer::all();
+//     return view('index-services',compact('menus','services','serviceslists','features',
+//     'contacts','messages','footers'));
+// });
+Route::resource('/services','ServicepageController');
+
 Route::get('/blog',function(){
     $menus = Menu::all();
     $footers = Footer::all();
