@@ -24,19 +24,37 @@
                         </div>
                         <div class="form-group">
                             <label for="fonction">Fonction</label>
-                            <div>
-                                <input type="radio" id="fonction" name="fonction">
-                                <label for="fonction">CEO</label>
-                              </div>
-                              <div>
-                                <input type="radio" id="fonction" name="fonction">
-                                <label for="fonction">Autres:</label>
-                                <input type="text" id="fonction" name="fonction">
-                              </div>
+                            <input type="text" name="fonction" id="fonction" class="form-control mb-2">
                             @error('fonction')
                                 <span class="text-danger">{{$message}}</span>
                             @enderror
                         </div>
+                        <div class="form-group">
+                            <label for="">Position</label>
+                            <div>
+                                <input type="radio" value="Center" name="position" id="position">
+                                <p class="d-inline mr-5">Center</p>
+                            </div>
+                            <div>
+                                <input type="radio" value="Side" name="position" id="position">
+                                <p class="d-inline mr-5">Side</p>
+                            </div>
+                        </div>
+                        {{-- <div class="form-group">
+                            <label for="fonction">Fonction</label>
+                            <div>
+                                <input type="radio" id="fonction" name="fonction" value="center">
+                                <label for="fonction">CEO</label>
+                              </div>
+                              <div>
+                                <input type="radio" id="fonction" name="fonction" value="side">
+                                <label for="fonction">Autres:</label>
+                                <input type="text" id="fonction" name="fonction">
+                              </div>
+                                @error('fonction')
+                                    <span class="text-danger">{{$message}}</span>
+                                @enderror
+                        </div> --}}
                         <div class="form-group">
                             <label for="img">Photo</label>
                             <input type="file" name="img" id="img" class="form-control mb-2 w-50">

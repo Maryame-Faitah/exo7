@@ -56,10 +56,10 @@ class MainController extends Controller
         $teams = Team::all();
 
         $membres = Membre::orderBy('id','desc')->take(3)->get();
-        // $centers = $membres->where('filter','Center');
-        // $center = $centers->random(1);
-        // $sides = $membres->where('filter','Side');
-        // $side = $sides->random(2);
+        $centers = $membres->where('position','Center');
+        $center = $centers->random(1);
+        $sides = $membres->where('position','Side');
+        $side = $sides->random(2);
 
         $posts = Post::all();
         $categories = Categorie::all();
@@ -71,7 +71,8 @@ class MainController extends Controller
         $footers = Footer::all();
         return view('index',compact('menus','heros','slogans','videos','abouts','testimonials','temoins',
         'services','serviceslists','servicesprimes','servicesprimeslefts','servicesprimesrights', 'servicesrapides',
-        'features','teams','membres','posts','categories','tags','readys','contacts','messages','footers'));
+        'features','teams','membres','center','centers','side','sides',
+        'posts','categories','tags','readys','contacts','messages','footers'));
     }
 
     /**

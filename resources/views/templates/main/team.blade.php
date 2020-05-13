@@ -12,15 +12,36 @@
         </div>
         <div class="row">
             @if (count($membres) !== 0)
-                @foreach ($membres as $membre)
-                    <div class="col-sm-4">
-                        <div class="member">
-                            <img src="{{asset('storage/'.$membre->img)}}" alt="">
-                            <h2>{{$membre->prenom}} {{$membre->nom}}</h2>
-                            <h3>{{$membre->fonction}}</h3>
+                @for ($i = 0; $i < 3; $i++)
+                    @if ($i == 1)
+                        <div class="col-sm-4">
+                            <div class="member">
+                                <img src="{{asset('storage/'.$center[0]->img)}}" alt="">
+                                <h2>{{$center[0]->prenom}} {{$center[0]->nom}}</h2>
+                                <h3>{{$center[0]->fonction}}</h3>
+                            </div>
                         </div>
-                    </div>
-                @endforeach
+                    @else
+                        @if ($i == 0)
+                            <div class="col-sm-4">
+                                <div class="member">
+                                    <img src="{{asset('storage/'.$side[0]->img)}}" alt="">
+                                    <h2>{{$side[0]->prenom}} {{$side[0]->nom}}</h2>
+                                    <h3>{{$side[0]->fonction}}</h3>
+                                </div>
+                            </div>
+                        @elseif($i == 2)
+                            <div class="col-sm-4">
+                                <div class="member">
+                                    <img src="{{asset('storage/'.$side[1]->img)}}" alt="">
+                                    <h2>{{$side[1]->prenom}} {{$side[1]->nom}}</h2>
+                                    <h3>{{$side[1]->fonction}}</h3>
+                                </div>
+                            </div>
+                        @endif
+                    @endif
+                @endfor
+                
             @else
                 <!-- single member -->
                 <div class="col-sm-4">

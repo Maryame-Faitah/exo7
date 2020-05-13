@@ -18,6 +18,7 @@ class CreateMembresTable extends Migration
             $table->string('nom',30);
             $table->string('prenom',30);
             $table->string('fonction',50);
+            $table->string('position',50)->nullable();
             $table->string('img',200);
             $table->timestamps();
         });

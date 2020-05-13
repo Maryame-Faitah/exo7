@@ -47,6 +47,7 @@
                                 <th>Nom</th>
                                 <th>Prénom</th>
                                 <th>Fonction</th>
+                                <th>Position</th>
                                 <th>Photo</th>
                                 <th></th>
                             </tr>
@@ -62,6 +63,9 @@
                                     </td>
                                     <td>
                                         {{$membre->fonction}}
+                                    </td>
+                                    <td>
+                                        {{$membre->position}}
                                     </td>
                                     <td>
                                         <img src="{{asset('storage/'.$membre->img)}}" alt="" class="w-25">

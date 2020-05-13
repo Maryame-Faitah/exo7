@@ -45,6 +45,7 @@ class MembreController extends Controller
         $membre->nom = request('nom');
         $membre->prenom = request('prenom');
         $membre->fonction = request('fonction');
+        $membre->position = request('position');
         $membre->img = request('img')->store('img');
 
         $membre->save();
@@ -94,6 +95,7 @@ class MembreController extends Controller
         $membre->nom = request('nom');
         $membre->prenom = request('prenom');
         $membre->fonction = request('fonction');
+        $membre->position = request('position');
 
         $membre->save();
 

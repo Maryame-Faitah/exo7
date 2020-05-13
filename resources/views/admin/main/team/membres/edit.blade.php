@@ -31,6 +31,27 @@
                             @enderror
                         </div>
                         <div class="form-group">
+                            <label for="">Position</label>
+                            <div>
+                                @if ($membre->position == "Center")
+                                    <input type="radio" value="Center" name="position" id="position" checked>
+                                    <p class="d-inline mr-5">Center</p>
+                                @else
+                                    <input type="radio" value="Center" name="position" id="position">
+                                    <p class="d-inline mr-5">Center</p>
+                                @endif
+                            </div>
+                            <div>
+                                @if ($membre->position == "Side")
+                                    <input type="radio" value="Side" name="position" id="position" checked>
+                                    <p class="d-inline mr-5">Side</p>    
+                                @else
+                                    <input type="radio" value="Side" name="position" id="position">
+                                    <p class="d-inline mr-5">Side</p>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label for="img">Photo</label>
                             <input type="file" name="img" id="img" class="form-control mb-2" value="{{$membre->img}}">
                             <img src="{{asset('storage/'.$membre->img)}}" alt="">
