@@ -51,8 +51,10 @@
 
 
 	{{-- <script src="js/circle-progress.min.js"></script> --}}
+	
 
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0YyDTa0qqOjIerob2VTIwo_XVMhrruxo"></script>
+
+	{{-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0YyDTa0qqOjIerob2VTIwo_XVMhrruxo"></script> --}}
 
 	<script src="{{asset('js/app.js')}}"></script>
 

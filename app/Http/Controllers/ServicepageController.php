@@ -26,12 +26,16 @@ class ServicepageController extends Controller
 
         $serviceslists = Serviceslist::orderBy('id','desc')->paginate(9);
 
+        $servicesprimes = Serviceslist::orderBy('id','desc')->take(6)->get();
+        $servicesprimeslefts = $servicesprimes->take(3);
+        $servicesprimesrights = $servicesprimes->take(-3);
+
         $features = Feature::all();
         $contacts = Contact::all();
         $messages = Message::all();
         $footers = Footer::all();
-        return view('index-services',compact('menus','services','serviceslists','features',
-        'contacts','messages','footers'));
+        return view('index-services',compact('menus','services','serviceslists','servicesprimes','servicesprimeslefts',
+        'servicesprimesrights','features','contacts','messages','footers'));
     }
 
     /**

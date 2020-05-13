@@ -11,7 +11,9 @@ use App\Temoin;
 use App\Service;
 use App\Serviceslist;
 use App\Feature;
-
+use App\Post;
+use App\Tag;
+use App\Categorie;
 use App\Team;
 use App\Membre;
 use App\Ready;
@@ -42,7 +44,6 @@ use App\Footer;
 //     $services = Service::all();
 //     $serviceslists = Serviceslist::all();
 //     $features = Feature::all();
-    
 //     $teams = Team::all();
 //     $membres = Membre::all();
 //     $readys = Ready::all();
@@ -60,7 +61,6 @@ Route::resource('/','MainController');
 //     $services = Service::all();
 //     $serviceslists = Serviceslist::all();
 //     $features = Feature::all();
-
 //     $contacts = Contact::all();
 //     $messages = Message::all();
 //     $footers = Footer::all();
@@ -71,13 +71,23 @@ Route::resource('/services','ServicepageController');
 
 Route::get('/blog',function(){
     $menus = Menu::all();
+
+    $posts = Post::all();
+    $tags = Tag::all();
+    $categories = Categorie::all();
+
     $footers = Footer::all();
-    return view('index-blog',compact('menus','footers'));
+    return view('index-blog',compact('menus','posts','tags','categories','footers'));
 });
 Route::get('/blog-post',function(){
     $menus = Menu::all();
+
+    $posts = Post::all();
+    $tags = Tag::all();
+    $categories = Categorie::all();
+
     $footers = Footer::all();
-    return view('index-blog-post',compact('menus','footers'));
+    return view('index-blog-post',compact('menus','posts','tags','categories','footers'));
 });
 Route::get('/contact',function(){
     $menus = Menu::all();
@@ -112,12 +122,15 @@ Route::resource('/admin/main/ready','ReadyController');
 // main page -> contact
 Route::resource('/admin/main/contact','ContactController');
 Route::resource('/admin/message','MessageController');
-
 // services page -> services
 Route::resource('/admin/services/servicescard','ServiceController');
 Route::resource('/admin/services/servicescard/serviceslist','ServiceslistController');
 // services page -> services primés
 Route::resource('/admin/services/features','FeatureController');
+// blog page -> articles
+Route::resource('/admin/blog/post','PostController');
+Route::resource('/admin/blog/post/tag','TagController');
+Route::resource('/admin/blog/post/categorie','CategorieController');
 // footer
 Route::resource('/admin/footer','FooterController');
 

@@ -15,35 +15,50 @@
         <div class="row">
             <!-- feature item -->
             <div class="col-md-4 col-sm-4 features">
-                <div class="icon-box light left">
-                    <div class="service-text">
-                        <h2>Get in the lab</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
+                @if (count($servicesprimeslefts) !== 0)
+                    @foreach($servicesprimeslefts as $servicesprimeleft)
+                        <div class="icon-box light left">
+                            <div class="service-text">
+                                <h2>{{$servicesprimeleft->titre}}</h2>
+                                <p>{{$servicesprimeleft->description}}</p>
+                            </div>
+                            <div class="icon">
+                                <i class="{{$servicesprimeleft->icon}}"></i>
+                            </div>
+                        </div>
+                    @endforeach
+                @else
+                    <!-- feature item -->
+                    <div class="icon-box light left">
+                        <div class="service-text">
+                            <h2>Projects online</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
+                        </div>
+                        <div class="icon">
+                            <i class="flaticon-019-coffee-cup"></i>
+                        </div>
                     </div>
-                    <div class="icon">
-                        <i class="flaticon-002-caliper"></i>
+                    <!-- feature item -->
+                    <div class="icon-box light left">
+                        <div class="service-text">
+                            <h2>Projects online</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
+                        </div>
+                        <div class="icon">
+                            <i class="flaticon-019-coffee-cup"></i>
+                        </div>
                     </div>
-                </div>
-                <!-- feature item -->
-                <div class="icon-box light left">
-                    <div class="service-text">
-                        <h2>Projects online</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
+                    <!-- feature item -->
+                    <div class="icon-box light left">
+                        <div class="service-text">
+                            <h2>SMART MARKETING</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
+                        </div>
+                        <div class="icon">
+                            <i class="flaticon-020-creativity"></i>
+                        </div>
                     </div>
-                    <div class="icon">
-                        <i class="flaticon-019-coffee-cup"></i>
-                    </div>
-                </div>
-                <!-- feature item -->
-                <div class="icon-box light left">
-                    <div class="service-text">
-                        <h2>SMART MARKETING</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
-                    </div>
-                    <div class="icon">
-                        <i class="flaticon-020-creativity"></i>
-                    </div>
-                </div>
+                @endif
             </div>
             <!-- Devices -->
             <div class="col-md-4 col-sm-4 devices">
@@ -53,35 +68,50 @@
             </div>
             <!-- feature item -->
             <div class="col-md-4 col-sm-4 features">
-                <div class="icon-box light">
-                    <div class="icon">
-                        <i class="flaticon-037-idea"></i>
+                @if (count($servicesprimesrights) !== 0)
+                    @foreach ($servicesprimesrights as $servicesprimesright)
+                        <div class="icon-box light">
+                            <div class="icon">
+                                <i class="{{$servicesprimesright->icon}}"></i>
+                            </div>
+                            <div class="service-text">
+                                <h2>{{$servicesprimesright->titre}}</h2>
+                                <p>{{$servicesprimesright->description}}</p>
+                            </div>
+                        </div>
+                    @endforeach
+                @else
+                    <!-- feature item -->
+                    <div class="icon-box light">
+                        <div class="icon">
+                            <i class="flaticon-037-idea"></i>
+                        </div>
+                        <div class="service-text">
+                            <h2>Get in the lab</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
+                        </div>
                     </div>
-                    <div class="service-text">
-                        <h2>Get in the lab</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
+                    <!-- feature item -->
+                    <div class="icon-box light">
+                        <div class="icon">
+                            <i class="flaticon-025-imagination"></i>
+                        </div>
+                        <div class="service-text">
+                            <h2>Projects online</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
+                        </div>
                     </div>
-                </div>
-                <!-- feature item -->
-                <div class="icon-box light">
-                    <div class="icon">
-                        <i class="flaticon-025-imagination"></i>
+                    <!-- feature item -->
+                    <div class="icon-box light">
+                        <div class="icon">
+                            <i class="flaticon-008-team"></i>
+                        </div>
+                        <div class="service-text">
+                            <h2>SMART MARKETING</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
+                        </div>
                     </div>
-                    <div class="service-text">
-                        <h2>Projects online</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
-                    </div>
-                </div>
-                <!-- feature item -->
-                <div class="icon-box light">
-                    <div class="icon">
-                        <i class="flaticon-008-team"></i>
-                    </div>
-                    <div class="service-text">
-                        <h2>SMART MARKETING</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
-                    </div>
-                </div>
+                @endif
             </div>
         </div>
         @if (count($features) !== 0)

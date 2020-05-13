@@ -4,36 +4,52 @@
 	<div class="card-section">
 		<div class="container">
 			<div class="row">
-				<!-- single card -->
-				<div class="col-md-4 col-sm-6">
-					<div class="lab-card">
-						<div class="icon">
-							<i class="flaticon-023-flask"></i>
+				@if (count($servicesrapides) !== 0)
+					@foreach ($servicesrapides->random(3) as $servicesrapide)
+						<!-- single card -->
+						<div class="col-md-4 @if($loop->last) col-sm-12 @else col-sm-6 @endif">
+							{{-- cdt pour responsivité --}}
+							<div class="lab-card">
+								<div class="icon">
+									<i class="{{$servicesrapide->icon}}"></i>
+								</div>
+								<h2>{{$servicesrapide->titre}}</h2>
+								<p>{{$servicesrapide->description}}</p>
+							</div>
 						</div>
-						<h2>Get in the lab</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-					</div>
-				</div>
-				<!-- single card -->
-				<div class="col-md-4 col-sm-6">
-					<div class="lab-card">
-						<div class="icon">
-							<i class="flaticon-011-compass"></i>
+					@endforeach
+				@else
+					<!-- single card -->
+					<div class="col-md-4 col-sm-6">
+						<div class="lab-card">
+							<div class="icon">
+								<i class="flaticon-023-flask"></i>
+							</div>
+							<h2>Get in the lab</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
 						</div>
-						<h2>Projects online</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
 					</div>
-				</div>
-				<!-- single card -->
-				<div class="col-md-4 col-sm-12">
-					<div class="lab-card">
-						<div class="icon">
-							<i class="flaticon-037-idea"></i>
+					<!-- single card -->
+					<div class="col-md-4 col-sm-6">
+						<div class="lab-card">
+							<div class="icon">
+								<i class="flaticon-011-compass"></i>
+							</div>
+							<h2>Projects online</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
 						</div>
-						<h2>SMART MARKETING</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiatnec elementum id, suscipit id nulla..</p>
 					</div>
-				</div>
+					<!-- single card -->
+					<div class="col-md-4 col-sm-12">
+						<div class="lab-card">
+							<div class="icon">
+								<i class="flaticon-037-idea"></i>
+							</div>
+							<h2>SMART MARKETING</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiatnec elementum id, suscipit id nulla..</p>
+						</div>
+					</div>
+				@endif
 			</div>
 		</div>
 	</div>

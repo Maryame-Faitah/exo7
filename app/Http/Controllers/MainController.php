@@ -14,7 +14,9 @@ use App\Temoin;
 use App\Service;
 use App\Serviceslist;
 use App\Feature;
-
+use App\Post;
+use App\Categorie;
+use App\Tag;
 use App\Team;
 use App\Membre;
 use App\Ready;
@@ -37,20 +39,39 @@ class MainController extends Controller
         $videos = Video::all();
         $abouts = About::all();
         $testimonials = Testimonial::all();
-        $temoins = Temoin::all();
+        
+        $temoins = Temoin::orderBy('id','desc')->take(6)->get();
+
         $services = Service::all();
 
         $serviceslists = Serviceslist::orderBy('id','desc')->paginate(9);
 
+        $servicesrapides = Serviceslist::all();
+
+        $servicesprimes = Serviceslist::all();
+        $servicesprimeslefts = Serviceslist::all();
+        $servicesprimesrights = Serviceslist::all();
+
         $features = Feature::all();
         $teams = Team::all();
+
         $membres = Membre::orderBy('id','desc')->take(3)->get();
+        // $centers = $membres->where('filter','Center');
+        // $center = $centers->random(1);
+        // $sides = $membres->where('filter','Side');
+        // $side = $sides->random(2);
+
+        $posts = Post::all();
+        $categories = Categorie::all();
+        $tags = Tag::all();
+
         $readys = Ready::all();
         $contacts = Contact::all();
         $messages = Message::all();
         $footers = Footer::all();
         return view('index',compact('menus','heros','slogans','videos','abouts','testimonials','temoins',
-        'services','serviceslists','features','teams','membres','readys','contacts','messages','footers'));
+        'services','serviceslists','servicesprimes','servicesprimeslefts','servicesprimesrights', 'servicesrapides',
+        'features','teams','membres','posts','categories','tags','readys','contacts','messages','footers'));
     }
 
     /**

@@ -260,6 +260,11 @@ return [
         ],
         ['header' => 'BLOG'],
         [
+            'text' => 'Blog Posts',
+            'url' => '/admin/blog/post',
+            'icon' => 'far fa-newspaper',
+        ],
+        [
             'text' => 'Newsletter',
             'url' => '',
             'icon' => 'far fa-check-circle',

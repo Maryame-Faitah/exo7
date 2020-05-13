@@ -24,7 +24,15 @@
                         </div>
                         <div class="form-group">
                             <label for="fonction">Fonction</label>
-                            <input type="text" name="fonction" id="fonction" class="form-control mb-2">
+                            <div>
+                                <input type="radio" id="fonction" name="fonction">
+                                <label for="fonction">CEO</label>
+                              </div>
+                              <div>
+                                <input type="radio" id="fonction" name="fonction">
+                                <label for="fonction">Autres:</label>
+                                <input type="text" id="fonction" name="fonction">
+                              </div>
                             @error('fonction')
                                 <span class="text-danger">{{$message}}</span>
                             @enderror
