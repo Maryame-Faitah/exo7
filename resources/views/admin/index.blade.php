@@ -8,14 +8,14 @@
               <!-- small box -->
               <div class="small-box bg-info">
                 <div class="inner">
-                  {{-- <h3>{{count($services2)}}</h3> --}}
+                  <h3>{{count($serviceslists)}}</h3>
   
                   <p>Services</p>
                 </div>
                 <div class="icon">
                   <i class="fas fa-hands-helping"></i>
                 </div>
-                {{-- <a href="{{route('services1.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
+                <a href="{{route('servicescard.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
         </div>
             <!-- ./col -->
@@ -23,14 +23,14 @@
               <!-- small box -->
               <div class="small-box bg-success">
                 <div class="inner">
-                  {{-- <h3>{{count($portfolios)}}</h3> --}}
+                  <h3>{{count($posts)}}</h3>
   
-                  <p>Portfolios</p>
+                  <p>Blog</p>
                 </div>
                 <div class="icon">
                   <i class="fas fa-briefcase"></i>
                 </div>
-                {{-- <a href="{{route('portfolio.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
+                <a href="{{route('post.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
         </div>
             <!-- ./col -->
@@ -38,14 +38,16 @@
               <!-- small box -->
               <div class="small-box bg-warning">
                 <div class="inner">
-                  {{-- <h3>{{count($teams2)}}</h3> --}}
+                  <h3 class="text-light">{{count($membres)}}</h3>
   
-                  <p>Team Members</p>
+                  <p class="text-light">Team Members</p>
                 </div>
                 <div class="icon">
                   <i class="fas fa-users"></i>
                 </div>
-                {{-- <a href="{{route('team1.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
+                <a href="{{route('team.index')}}" class="small-box-footer text-light">
+                  <p class="text-light my-0">More info <i class="fas fa-arrow-circle-right"></i></p>
+                </a>
               </div>
         </div>
             <!-- ./col -->

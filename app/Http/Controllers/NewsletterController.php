@@ -3,17 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-//use Illuminate\Pagination\Paginator;
-use App\Menu;
-use App\Service;
-use App\Serviceslist;
-use App\Feature;
-use App\Newsletter;
-use App\Contact;
-use App\Message;
-use App\Footer;
+use Illuminate\Support\Facades\DB;
+// faire pagination dans admin
+use Illuminate\Support\Facades\Storage;
+use App\Newsletter; 
+use App\Mail\EnvoiMessage;
+use Mail;
 
-class ServicepageController extends Controller
+class NewsletterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,25 +19,11 @@ class ServicepageController extends Controller
      */
     public function index()
     {
-        $menus = Menu::all();
-        $services = Service::all();
-
-        $serviceslists = Serviceslist::orderBy('id','desc')->paginate(9);
-
-        $servicesprimes = Serviceslist::orderBy('id','desc')->take(6)->get();
-        $servicesprimeslefts = $servicesprimes->take(3);
-        $servicesprimesrights = $servicesprimes->take(-3);
-
-        $features = Feature::all();
-
         $newsletters = Newsletter::all();
 
-        $contacts = Contact::all();
-        $messages = Message::all();
-        $footers = Footer::all();
-        return view('index-services',compact('menus','services','serviceslists',
-        'servicesprimes','servicesprimeslefts','servicesprimesrights','features',
-        'newsletters','contacts','messages','footers'));
+        $newsletters = DB::table('newsletters')->orderBy('id','desc')->paginate(5);
+
+        return view('admin.newsletter.index',compact('newsletters'));
     }
 
     /**
@@ -61,7 +44,18 @@ class ServicepageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newsletter = new Newsletter();
+        $request->validate(['email'=>'required|email']);
+        // mini validation
+        Mail::to(request('email'))->send(new EnvoiMessage($request));
+        
+        $newsletter = new Newsletter();
+
+        $newsletter->email = request('email');
+
+        $newsletter->save();
+
+        return redirect()->back()->with('messages','Votre email a été envoyé! Merci!');
     }
 
     /**
@@ -106,6 +100,10 @@ class ServicepageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $newsletters = Newsletter::find($id);
+
+        $newsletters->delete();
+        
+        return redirect()->route('newsletter.index');
     }
 }

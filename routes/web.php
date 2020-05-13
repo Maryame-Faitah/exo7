@@ -17,6 +17,7 @@ use App\Categorie;
 use App\Team;
 use App\Membre;
 use App\Ready;
+use App\Newsletter;
 use App\Contact;
 use App\Message;
 use App\Footer;
@@ -86,20 +87,26 @@ Route::get('/blog-post',function(){
     $tags = Tag::all();
     $categories = Categorie::all();
 
+    $newsletters = Newsletter::all();
+
     $footers = Footer::all();
-    return view('index-blog-post',compact('menus','posts','tags','categories','footers'));
+    return view('index-blog-post',compact('menus','posts','tags','categories','newsletters','footers'));
 });
 Route::get('/contact',function(){
     $menus = Menu::all();
     $contacts = Contact::all();
+    $newsletters = Newsletter::all();
     $messages = Message::all();
     $footers = Footer::all();
-    return view('index-contact',compact('menus','contacts','messages','footers'));
+    return view('index-contact',compact('menus','contacts','messages','newsletters','footers'));
 });
 //////////////////////////////////////////// ADMINLTE PAGE ////////////////////////////////////////////////////////
 Route::get('/admin',function(){
+    $serviceslists = Serviceslist::all();
+    $posts = Post::all();
+    $membres = Membre::all();
     $messages = Message::all();
-    return view('admin.index',compact('messages'));
+    return view('admin.index',compact('serviceslists','posts','membres','messages'));
 });
 // menu
 Route::resource('/admin/menu','MenuController');
@@ -127,6 +134,8 @@ Route::resource('/admin/services/servicescard','ServiceController');
 Route::resource('/admin/services/servicescard/serviceslist','ServiceslistController');
 // services page -> services primés
 Route::resource('/admin/services/features','FeatureController');
+// services page -> newsletter
+Route::resource('/admin/newsletter','NewsletterController');
 // blog page -> articles
 Route::resource('/admin/blog/post','PostController');
 Route::resource('/admin/blog/post/tag','TagController');

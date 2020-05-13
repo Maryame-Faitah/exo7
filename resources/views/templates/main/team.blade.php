@@ -41,7 +41,6 @@
                         @endif
                     @endif
                 @endfor
-                
             @else
                 <!-- single member -->
                 <div class="col-sm-4">

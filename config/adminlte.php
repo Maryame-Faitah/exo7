@@ -266,7 +266,7 @@ return [
         ],
         [
             'text' => 'Newsletter',
-            'url' => '',
+            'url' => '/admin/newsletter',
             'icon' => 'far fa-check-circle',
         ],
 

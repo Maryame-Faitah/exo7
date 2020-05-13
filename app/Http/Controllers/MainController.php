@@ -20,6 +20,7 @@ use App\Tag;
 use App\Team;
 use App\Membre;
 use App\Ready;
+use App\Newsletter;
 use App\Contact;
 use App\Message;
 use App\Footer;
@@ -66,13 +67,17 @@ class MainController extends Controller
         $tags = Tag::all();
 
         $readys = Ready::all();
+
+        $newsletters = Newsletter::all();
+
         $contacts = Contact::all();
         $messages = Message::all();
         $footers = Footer::all();
         return view('index',compact('menus','heros','slogans','videos','abouts','testimonials','temoins',
         'services','serviceslists','servicesprimes','servicesprimeslefts','servicesprimesrights', 'servicesrapides',
         'features','teams','membres','center','centers','side','sides',
-        'posts','categories','tags','readys','contacts','messages','footers'));
+        'posts','categories','tags','readys',
+        'newsletters','contacts','messages','footers'));
     }
 
     /**
