@@ -8,6 +8,8 @@ use App\Http\Requests\PostRequest;
 use App\Post;
 use App\Tag;
 use App\Categorie;
+use App\User;
+use App\Comment;
 
 class PostController extends Controller
 {
@@ -31,7 +33,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.blog.post.create');
+        $categories = Categorie::all();
+        return view('admin.blog.post.create',compact('categories'));
     }
 
     /**
@@ -48,6 +51,8 @@ class PostController extends Controller
         $post->date = request('date');
         $post->img = request('img')->store('img');
         $post->texte = request('texte');
+        $post->categorie_id = request('categorie_id');
+        $post->user_id = User::InRandomOrder()->first()->id;
 
         $post->save();
 
@@ -62,7 +67,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        // $posts = Post::find($id);
+        // return view('templates.blog-post.blog-post', compact('posts'));
     }
 
     /**
@@ -74,8 +80,8 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
-
-        return view('admin.blog.post.edit',compact('post'));
+        $categories = Categorie::all();
+        return view('admin.blog.post.edit',compact('post','categories'));
     }
 
     /**
@@ -96,6 +102,8 @@ class PostController extends Controller
         $post->titre = request('titre');
         $post->date = request('date');
         $post->texte = request('texte');
+        $post->categorie_id = request('categorie_id');
+        $post->user_id = User::InRandomOrder()->first()->id;
 
         $post->save();
 

@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email','password','img','fonction','description'
     ];
 
     /**
@@ -36,4 +36,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // va voir champ dans tab pour que utilisateur puisse tous les completer
+    protected $guarded = [];
+
+    public function post(){
+        return $this->hasMany('App\Post');
+    }
 }

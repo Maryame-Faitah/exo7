@@ -17,6 +17,7 @@ use App\Feature;
 use App\Post;
 use App\Categorie;
 use App\Tag;
+use App\Comment;
 use App\Team;
 use App\Membre;
 use App\Ready;
@@ -66,6 +67,8 @@ class MainController extends Controller
         $categories = Categorie::all();
         $tags = Tag::all();
 
+        $comments = Comment::all();
+
         $readys = Ready::all();
 
         $newsletters = Newsletter::all();
@@ -76,8 +79,8 @@ class MainController extends Controller
         return view('index',compact('menus','heros','slogans','videos','abouts','testimonials','temoins',
         'services','serviceslists','servicesprimes','servicesprimeslefts','servicesprimesrights', 'servicesrapides',
         'features','teams','membres','center','centers','side','sides',
-        'posts','categories','tags','readys',
-        'newsletters','contacts','messages','footers'));
+        'posts','categories','tags','comments',
+        'readys','newsletters','contacts','messages','footers'));
     }
 
     /**

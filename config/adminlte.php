@@ -265,6 +265,11 @@ return [
             'icon' => 'far fa-newspaper',
         ],
         [
+            'text' => 'Commentaires',
+            'url' => '/admin/blog/comment',
+            'icon' => 'far fa-comments',
+        ],
+        [
             'text' => 'Newsletter',
             'url' => '/admin/newsletter',
             'icon' => 'far fa-check-circle',

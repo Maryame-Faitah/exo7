@@ -23,6 +23,14 @@
                             @enderror
                         </div>
                         <div class="form-group">
+                            <label for="categorie_id">Catégories</label>
+                            <select name="categorie_id" aria-controls="example1" class="form-control input-sm">
+                                @foreach ($categories as $categorie)
+                                    <option value="{{$categorie->id}}">{{$categorie->categorie}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="img">Image</label>
                             <input type="file" name="img" id="img" class="form-control mb-2 w-50">
                             @error('img')

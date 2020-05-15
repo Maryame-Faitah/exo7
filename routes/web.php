@@ -14,6 +14,7 @@ use App\Feature;
 use App\Post;
 use App\Tag;
 use App\Categorie;
+use App\Comment;
 use App\Team;
 use App\Membre;
 use App\Ready;
@@ -34,6 +35,8 @@ use App\Footer;
 */
 
 /////////////////////////////////////////////// INDEX //////////////////////////////////////////////////////////
+
+// Route placée dans MainController
 // Route::get('/', function () {
 //     $menus = Menu::all();
 //     $heros = Hero::all();
@@ -57,6 +60,8 @@ use App\Footer;
 Route::resource('/','MainController');
 
 //////////////////////////////////////////// AUTRES PAGES ////////////////////////////////////////////////////////
+
+// Route placée dans ServicepageController
 // Route::get('/services',function(){
 //     $menus = Menu::all();
 //     $services = Service::all();
@@ -76,21 +81,24 @@ Route::get('/blog',function(){
     $posts = Post::all();
     $tags = Tag::all();
     $categories = Categorie::all();
+    $comments = Comment::all();
 
     $footers = Footer::all();
-    return view('index-blog',compact('menus','posts','tags','categories','footers'));
+    return view('index-blog',compact('menus','posts','tags','categories','comments','footers'));
 });
-Route::get('/blog-post',function(){
+Route::get('/blog-post/{id}',function($id){
     $menus = Menu::all();
 
-    $posts = Post::all();
+    $post = Post::find($id);
     $tags = Tag::all();
     $categories = Categorie::all();
+
+    //$comments = Comment::all();
 
     $newsletters = Newsletter::all();
 
     $footers = Footer::all();
-    return view('index-blog-post',compact('menus','posts','tags','categories','newsletters','footers'));
+    return view('index-blog-post',compact('menus','post','tags','categories','newsletters','footers'));
 });
 Route::get('/contact',function(){
     $menus = Menu::all();
@@ -101,15 +109,18 @@ Route::get('/contact',function(){
     return view('index-contact',compact('menus','contacts','messages','newsletters','footers'));
 });
 //////////////////////////////////////////// ADMINLTE PAGE ////////////////////////////////////////////////////////
-Route::get('/admin',function(){
-    $serviceslists = Serviceslist::all();
-    $posts = Post::all();
-    $membres = Membre::all();
-    $messages = Message::all();
-    return view('admin.index',compact('serviceslists','posts','membres','messages'));
-});
+
+// Route placée dans HomeController
+// Route::get('/admin',function(){
+//     $serviceslists = Serviceslist::all();
+//     $posts = Post::all();
+//     $membres = Membre::all();
+//     $messages = Message::all();
+//     return view('admin.index',compact('serviceslists','posts','membres','messages'));
+// });
 // menu
 Route::resource('/admin/menu','MenuController');
+
 // main page -> hero
 Route::resource('/admin/main/hero','HeroController');
 Route::resource('/admin/main/hero/slogan','SloganController');
@@ -120,7 +131,6 @@ Route::resource('/admin/main/about','AboutController');
 // main page -> testimonials
 Route::resource('/admin/main/testimonials','TestimonialController');
 Route::resource('/admin/main/testimonials/temoins','TemoinController');
-
 // main page -> team
 Route::resource('/admin/main/team','TeamController');
 Route::resource('/admin/main/team/membres','MembreController');
@@ -129,6 +139,7 @@ Route::resource('/admin/main/ready','ReadyController');
 // main page -> contact
 Route::resource('/admin/main/contact','ContactController');
 Route::resource('/admin/message','MessageController');
+
 // services page -> services
 Route::resource('/admin/services/servicescard','ServiceController');
 Route::resource('/admin/services/servicescard/serviceslist','ServiceslistController');
@@ -136,14 +147,16 @@ Route::resource('/admin/services/servicescard/serviceslist','ServiceslistControl
 Route::resource('/admin/services/features','FeatureController');
 // services page -> newsletter
 Route::resource('/admin/newsletter','NewsletterController');
+
 // blog page -> articles
 Route::resource('/admin/blog/post','PostController');
 Route::resource('/admin/blog/post/tag','TagController');
 Route::resource('/admin/blog/post/categorie','CategorieController');
+Route::resource('/admin/blog/comment','CommentController');
 // footer
 Route::resource('/admin/footer','FooterController');
 
 //////////////////////////////////////////// AUTHENTIFICATION //////////////////////////////////////////////////////
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admin', 'HomeController@index')->name('admin');

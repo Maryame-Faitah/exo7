@@ -45,8 +45,8 @@ class NewsletterController extends Controller
     public function store(Request $request)
     {
         $newsletter = new Newsletter();
-        $request->validate(['email'=>'required|email']);
         // mini validation
+        $request->validate(['email'=>'required|email']);
         Mail::to(request('email'))->send(new EnvoiMessage($request));
         
         $newsletter = new Newsletter();

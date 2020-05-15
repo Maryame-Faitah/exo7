@@ -1,4 +1,4 @@
-@extends('layout.app')
+{{-- @extends('layout.app')
 
 @section('content')
     @include('templates.blog-post.header')
@@ -6,6 +6,16 @@
     @include('templates.blog-post.blog-post')
     @include('templates.blog-post.newsletter')
     @include('templates.blog-post.footer')
+@endsection --}}
+
+@extends('layout.app')
+
+@section('content')
+    @include('templates.blog.header')
+    @include('templates.blog.page-top')
+    @include('templates.blog-post.blog-post')
+    @include('templates.blog.newsletter')
+    @include('templates.blog.footer')
 @endsection
 
 <!-- Page Preloder -->

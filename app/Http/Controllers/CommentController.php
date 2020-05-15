@@ -4,12 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Requests\CategorieRequest;
-use App\Categorie;
-use App\Post;
-use App\Tag;
+use App\Comment; 
+use App\Post; 
+use App\User; 
 
-class CategorieController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +17,9 @@ class CategorieController extends Controller
      */
     public function index()
     {
-        $categories = Categorie::all();
-        $posts = Post::all();
-        $tags = Tag::all();
-        return view('admin.blog.post.index',compact('posts','tags','categories'));
+        $comments = Comment::all();
+
+        return view('admin.blog.comment.index',compact('comments'));
     }
 
     /**
@@ -31,7 +29,7 @@ class CategorieController extends Controller
      */
     public function create()
     {
-        return view('admin.blog.post.categorie.create');
+        //
     }
 
     /**
@@ -40,15 +38,28 @@ class CategorieController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CategorieRequest $request)
+    public function store(Request $request)
     {
-        $categorie = new Categorie();
+        $comment = new Comment();
 
-        $categorie->categorie = request('categorie');
+        // mini validation
+        // $request->validate(['nom'=>'required|nom']);
+        // $request->validate(['email'=>'required|email']);
+        // $request->validate(['sujet'=>'required|sujet']);
+        // $request->validate(['texte'=>'required|texte']);
 
-        $categorie->save();
+        // $comment = new Comment();
 
-        return redirect()->route('post.index');
+        $comment->nom = request('nom');
+        $comment->email = request('email');
+        $comment->sujet = request('sujet');
+        $comment->texte = request('texte');
+        $comment->post_id = Post::InRandomOrder()->first()->id;
+        $comment->user_id = User::InRandomOrder()->first()->id;
+
+        $comment->save();
+
+        return redirect()->back();
     }
 
     /**
@@ -59,7 +70,8 @@ class CategorieController extends Controller
      */
     public function show($id)
     {
-        //
+        $comments = Comment::find($id);
+        return view('templates.blog-post.blog-post', compact('comment'));
     }
 
     /**
@@ -70,9 +82,7 @@ class CategorieController extends Controller
      */
     public function edit($id)
     {
-        $categorie = Categorie::find($id);
-
-        return view('admin.blog.post.categorie.edit',compact('categorie'));
+        //
     }
 
     /**
@@ -82,15 +92,9 @@ class CategorieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CategorieRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $categorie = Categorie::find($id);
-
-        $categorie->categorie = request('categorie');
-
-        $categorie->save();
-
-        return redirect()->route('post.index');
+        //
     }
 
     /**
@@ -101,11 +105,11 @@ class CategorieController extends Controller
      */
     public function destroy($id)
     {
-        $categorie = Categorie::find($id);
+        $comment = Comment::find($id);
 
-        Storage::delete($categorie);
+        Storage::delete($comment);
 
-        $categorie->delete();
+        $comment->delete();
 
         return redirect()->back();
     }

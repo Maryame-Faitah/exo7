@@ -4,7 +4,7 @@
     <div class="container">
         <h1 class="text-center">Section Blog Posts</h1>
         {{-- Creation de categories --}}
-        @if (count($categories) == 0)
+        @if (count($categories) !== 6)
             <a href="{{route('categorie.create')}}" class="btn btn-primary mb-2">Créer</a>
         @endif
         <div class="row">
@@ -13,12 +13,7 @@
                     <table class="table text-nowrap">
                         <thead>
                             <tr>
-                                <th>Catégorie 1</th>
-                                <th>Catégorie 2</th>
-                                <th>Catégorie 3</th>
-                                <th>Catégorie 4</th>
-                                <th>Catégorie 5</th>
-                                <th>Catégorie 6</th>
+                                <th>Catégories</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -26,22 +21,7 @@
                             @foreach ($categories as $categorie)
                                 <tr>
                                     <td>
-                                        {{$categorie->categorie1}}
-                                    </td>
-                                    <td>
-                                        {{$categorie->categorie2}}
-                                    </td>
-                                    <td>
-                                        {{$categorie->categorie3}}
-                                    </td>
-                                    <td>
-                                        {{$categorie->categorie4}}
-                                    </td>
-                                    <td>
-                                        {{$categorie->categorie5}}
-                                    </td>
-                                    <td>
-                                        {{$categorie->categorie6}}
+                                        {{$categorie->categorie}}
                                     </td>
                                     <td>
                                         <a href="{{route('categorie.edit',$categorie->id)}}" class="btn btn-primary">Modifier</a>
@@ -131,6 +111,7 @@
                             <tr>
                                 <th>Titre</th>
                                 <th>Date</th>
+                                <th>Catégorie</th>
                                 <th>Image</th>
                                 <th>Texte</th>
                                 <th></th>
@@ -146,7 +127,10 @@
                                         {{$post->date}}
                                     </td>
                                     <td>
-                                        <img src="{{asset('storage/'.$post->img)}}" alt="" class="w-25">
+                                        {{$categorie->categorie}}
+                                    </td>
+                                    <td>
+                                        <img src="{{asset('storage/'.$post->img)}}" alt="" class="w-75">
                                     </td>
                                     <td>
                                         {{$post->texte}}

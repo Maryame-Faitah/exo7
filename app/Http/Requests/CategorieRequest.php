@@ -24,29 +24,14 @@ class CategorieRequest extends FormRequest
     public function rules()
     {
         return [
-            'categorie1' => 'required|max:50',
-            'categorie2' => 'required|max:50',
-            'categorie3' => 'required|max:50',
-            'categorie4' => 'required|max:50',
-            'categorie5' => 'required|max:50',
-            'categorie6' => 'required|max:50',
+            'categorie' => 'required|max:50',
         ];
     }
     public function messages()
     {
         return [
-            'categorie1.required' => 'Champ obligatoire!',
-            'categorie1.max' => 'Maximum 50 caractères',
-            'categorie2.required' => 'Champ obligatoire!',
-            'categorie2.max' => 'Maximum 50 caractères',
-            'categorie3.required' => 'Champ obligatoire!',
-            'categorie3.max' => 'Maximum 50 caractères',
-            'categorie4.required' => 'Champ obligatoire!',
-            'categorie4.max' => 'Maximum 50 caractères',
-            'categorie5.required' => 'Champ obligatoire!',
-            'categorie5.max' => 'Maximum 50 caractères',
-            'categorie6.required' => 'Champ obligatoire!',
-            'categorie6.max' => 'Maximum 50 caractères',
+            'categorie.required' => 'Champ obligatoire!',
+            'categorie.max' => 'Maximum 50 caractères',
         ];
     }
 }

@@ -21,13 +21,13 @@
                                 <div class="post-meta">
                                     <a href="">Loredana Papp</a>
                                     <a href="">Design, Inspiration</a>
-                                    <a href="">2 Comments</a>
+                                    <a href="">{{count($comments)}} Comments</a>
                                 </div>
                                 {{-- post --}}
                                 <p>
                                     {{$post->texte}}
                                 </p>
-                                <a href="/blog-post" class="read-more">Read More</a>
+                                <a href="/blog-post/{{$post->id}}" class="read-more">Read More</a>
                             </div>
                         </div>
                     @endforeach
@@ -120,12 +120,7 @@
                     @if (count($categories) !== 0)
                         @foreach ($categories as $categorie)
                             <ul>
-                                <li><a href="#">{{$categorie->categorie1}}</a></li>
-                                <li><a href="#">{{$categorie->categorie2}}</a></li>
-                                <li><a href="#">{{$categorie->categorie3}}</a></li>
-                                <li><a href="#">{{$categorie->categorie4}}</a></li>
-                                <li><a href="#">{{$categorie->categorie5}}</a></li>
-                                <li><a href="#">{{$categorie->categorie6}}</a></li>
+                                <li><a href="#">{{$categorie->categorie}}</a></li>
                             </ul>        
                         @endforeach
                     @else

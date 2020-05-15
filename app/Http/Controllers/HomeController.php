@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use App\Serviceslist;
+use App\Post;
+use App\Membre;
+use App\Message;
+
 
 class HomeController extends Controller
 {
@@ -23,6 +29,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $users = User::all();
+        $serviceslists = Serviceslist::all();
+        $posts = Post::all();
+        $membres = Membre::all();
+        $messages = Message::all();
+        return view('admin.index',compact('serviceslists','posts','membres','messages'));
+        //return view('admin');
     }
 }
